@@ -66,25 +66,6 @@ class App extends Component {
         but prevent (at least to some degree) unfair domination of the market by well-resourced actors. 
         It also means we can entirely remove middlemen from the process of curating information online.
         </p>
-        <p>
-          Each of these use-cases make use of the SNT token, but in very
-          different ways. This means each will have differing effects on the
-          supply and demand of the token itself. It doesn’t stop there, as
-          Status is an open and permissionless platform for developers to build
-          on and use, which means that anyone can build SNT use-cases that
-          affect the overall supply and demand. But how do we know what effect a
-          utility has? Where do we go to try and evaluate its usefulness?
-        </p>
-        <p>
-          To this end, we would like to start a blog series detailing some of
-          the research we are doing within Status to objectively evaluate the
-          value flows of SNT, the potential effects of our implemented (and upcoming)
-          SNT use cases within Status, and how our potential user growth changes
-          things. This work will encompass traditional economic and finance
-          theory, work currently being done in crypto-economics, and novel
-          methodology. That means a part of this endeavor is an attempt to get
-          peer review and evaluation of what we do by you, the community!
-        </p>
         <h2>Some Philosophy First</h2>
         <p>
           The point of cryptoeconomic design is not to create more "fair" systems. 
@@ -234,7 +215,7 @@ class App extends Component {
         </p>
         <h2>Resources</h2>
         <p>
-          <a href="https://github.com/andytudhope/discover">Github Repo</a> - look at Discover_Specification.md 
+          <a href="https://github.com/dap-ps/discover">Github Repo</a> - look at Discover_Specification.md 
           for descriptions of other attacks and more in-depth thinking. Please create issues and submit 
           PRs for anything you think we might be missing!
         </p>
