@@ -1,0 +1,5 @@
+node_modules
+build
+__mocks__
+__tests__
+package_lock.json
