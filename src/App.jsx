@@ -106,6 +106,14 @@ class App extends Component {
             <li>How that "relevance" was calculated</li>
             <li>How much it will cost me to effect information of which I approve/disapprove.</li>
         </ul>
+        <p>
+          Even further, because we know how much <a href="https://www.aspenreview.com/article/2017/jaron-lanier%3A-beware-of-siren-servers%21/">political power is generated for those who control</a>
+          such 'relevance' and 'cost', it's also important that no-one controls such systems and
+          that they exist solely to serve the networks of which they are a part.
+        </p>
+        <p>
+          It's not "Don't be evil". It is "We cannot be evil. Here is the proof."
+        </p>
         <h2>Economic Design</h2>
         <p>
           One other verifiable claim about people: more often than not they do not care enough 
@@ -127,10 +135,10 @@ class App extends Component {
         </p>
         <p>
         However, SNT holders can affect the rankings should they so desire, and doing so becomes 
-        cheaper and has a larger effect the more resources are committed to a given DApp"s rank.
+        cheaper and has a larger effect the more resources are committed to a given DApp's rank.
         </p>
         <p>
-          It"s all the beauty of bonding curves without the unnecessary complexity. 
+          It's all the beauty of bonding curves without the unnecessary complexity. 
           Even the maths is relatively straightforward.
         </p>
         <h2>Mathemagic!</h2>
