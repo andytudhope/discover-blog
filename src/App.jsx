@@ -44,6 +44,9 @@ class App extends Component {
       if (name === "currentUtilityValue") {
         return new Inspector(this.currentUtilityValue.current);
       }
+      if (name === "estimate_effect_on_snt_price") {
+        return new Inspector(this.estEffectOnSNT.current);
+      }
       return null;
     });
   }
@@ -71,6 +74,8 @@ class App extends Component {
   dollarDemandPerYearChart = React.createRef();
 
   currentUtilityValue = React.createRef();
+
+  estEffectOnSNT = React.createRef();
 
   render() {
     return (
@@ -101,30 +106,6 @@ class App extends Component {
           some degree) unfair domination of the market by well-resourced actors.
           It also means we can entirely remove middlemen from the process of
           curating information online.
-        </p>
-        <h2>Some Philosophy First</h2>
-        <p>
-          The point of cryptoeconomic design is not to create more "fair"
-          systems. It is to create systems with no single point of failure.
-        </p>
-        <p>
-          This is a vital distinction many miss. "Fairness" is a great success
-          metric because there are so many divergent ways to measure it.
-          However, <i>for precisely the same reason</i>, it is a terrible design
-          goal. Having a clear and easily-measurable goal in mind is the holy
-          grail of any mathematician, physicist, or computer scientist. Once you
-          can understand and articulate clearly what you want to achieve,
-          implementation becomes "fairly" trivial.
-        </p>
-        <p>
-          This has always been true: Euclid"s <i>Elements</i>, the beginning of
-          geometry, was written in the attempt to prove that there can only ever
-          be five Platonic solids. Euclid was not trying to "explore geometric
-          design space", or however a pseudo-intellectual Ancient Greek might
-          have put it. He had a clear goal in mind and built towards it,
-          charting the territory as he went not to show how clever he was, but
-          simply as a side-effect of moving closer to his final proof of the
-          five possible Platonic solids.
         </p>
         <h2>Looking Closer</h2>
         <p>
@@ -239,7 +220,7 @@ class App extends Component {
         </p>
         <ul>
           <li>
-            100% of what you stake as a developer goes toward your DApp"s
+            100% of what you stake as a developer goes toward your DApp's
             ranking. This is locked in the Discover contract, so decreases the
             total in circulation, which is good for the whole community of token
             holders.
@@ -252,7 +233,7 @@ class App extends Component {
           </li>
           <li>
             100% of what you use to upvote as a user goes directly to that
-            DApp"s balance and is also locked in the contract.
+            DApp's balance and is also locked in the contract.
           </li>
           <li>
             100% of what you use to downvote as a user goes directly back to the
@@ -326,7 +307,7 @@ class App extends Component {
         <h4>Calculate Aggregate Dollar Demand Per Year</h4>
         <p>
           The aggregate dollar demand has not only to do with the number of
-          DApps staking SNT, but also the number of users using Discover, as
+          DApps staking SNT, but also the number of people using Discover, as
           this impacts the average spend for each DApp in our calculations. If
           you'd like to see the{" "}
           <a href="https://observablehq.com/@andytudhope/embedded-discover">
@@ -341,14 +322,16 @@ class App extends Component {
         <div ref={this.userChurnRate} />
         <br />
         <div ref={this.dollarDemandPerYearChart} />
-        <h4>Net Present Utility Value</h4>
+        <h4>Estimated Effect on SNT Price</h4>
         <div ref={this.currentUtilityValue} />
+        <div ref={this.estEffectOnSNT} />
+        <br />
         <p>
           In the current setup, we can estimate a rough Net Present Utility
-          Value of $2.1M USD over the next 10 years for Discover. It's worth
-          noting that, if you change the userGrowthRate from the current 100%,
-          to 200%, then it has a drastic effect on the NPUV, moving it up to
-          81.4M USD. That's the power of compounding for you.
+          Value of ~$60M USD over the next 10 years for Discover. It's worth
+          noting that, if you change the userGrowthRate from the current 200%,
+          to 300%, then it has a drastic effect on the NPUV, moving it up to
+          867M USD. That's the power of compounding for you.
         </p>
         <p>
           From this, we can see what small changes to the relevant inputs can do
@@ -359,6 +342,15 @@ class App extends Component {
           available. Play with all the inputs yourself to see if you come up
           with other legitimate numbers and then join the conversation in our
           dedicated Status channel.
+        </p>
+        <p>
+          As you can see, the estimated effect of locking up all this SNT to
+          rank DApps on the Price of SNT over the next 10 years is roughly an
+          increase of $0.017 per token. At 300% userGrowthRate, this jumps up to
+          $0.25. And you can play with the DApp growth/churn rates too to see
+          the effect that has. Again, this is just an estimate, and Discover is
+          only one part of a much larger token ecosystem, so do take it with a
+          healthy pinch of salt.
         </p>
         <p>
           It's worth stressing this one more time: this utility value accrues to
@@ -385,12 +377,14 @@ class App extends Component {
         <p>
           Of course, curating information only by economic means is, in itself,
           narrow-minded and so we look forward to{" "}
-          <a href="https://discuss.status.im/t/friend-to-friend-content-discovery-community-feeds/1212" />
-          further \ research and implementation of other filter mechanisms in
-          Discover that are not economic. It is vital to use as much data as is
-          possible to gather on decentralised, public networks so that people
-          can easily create their own, personalised views of information while
-          remaining conscious of more global trends.
+          <a href="https://discuss.status.im/t/friend-to-friend-content-discovery-community-feeds/1212">
+            further research and implementation
+          </a>{" "}
+          of other filter mechanisms in Discover that are not economic. It is
+          vital to use as much data as is possible to gather on decentralised,
+          public networks so that people can easily create their own,
+          personalised views of information while remaining conscious of more
+          global trends.
         </p>
         <h2>Resources</h2>
         <p>
@@ -403,10 +397,9 @@ class App extends Component {
           <a href="https://observablehq.com/@andytudhope/embedded-discover">
             Full Observable Notebook
           </a>{" "}
-          - take a look through some of the finer modelling details andytudhope
-          play with them yourself, or fork this workbook for your own
-          project/work and benefit from the open source life we all lead at
-          Status.
+          - take a look through some of the finer modelling details, play with
+          them yourself, or fork this workbook for your own project/work and
+          benefit from the open source life we all lead at Status.
         </p>
         <h2>Notes</h2>
         <p>
