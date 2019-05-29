@@ -29,8 +29,8 @@ class App extends Component {
       if (name === "viewof percentageWithdrawn") {
         return new Inspector(this.percentageWithdrawn.current);
       }
-      if (name === "dapps") {
-        return new Inspector(this.dapps.current);
+      if (name === "dappsBar") {
+        return new Inspector(this.dappsBar.current);
       }
       if (name === "viewof userGrowthRate") {
         return new Inspector(this.userGrowthRate.current);
@@ -65,7 +65,7 @@ class App extends Component {
 
   percentageWithdrawn = React.createRef();
 
-  dapps = React.createRef();
+  dappsBar = React.createRef();
 
   userGrowthRate = React.createRef();
 
@@ -295,14 +295,16 @@ class App extends Component {
         <p>
           This is taken directly from StateOfTheDApp's current total. Now, you
           need to decide how many of those are actually mobile-optimised AND
-          would be willing to spend SNT to rank in Discover.
+          would be willing to spend SNT to rank in Discover. Note the
+          compounding effect on the y-axis as you change the growth rate in
+          particular.
         </p>
         <div ref={this.percentRanked} />
         <div ref={this.dappGrowthRate} />
         <br />
         <div ref={this.percentageWithdrawn} />
         <br />
-        <div ref={this.dapps} />
+        <div ref={this.dappsBar} />
         <br />
         <h4>Calculate Aggregate Dollar Demand Per Year</h4>
         <p>
@@ -347,10 +349,14 @@ class App extends Component {
           As you can see, the estimated effect of locking up all this SNT to
           rank DApps on the Price of SNT over the next 10 years is roughly an
           increase of $0.017 per token. At 300% userGrowthRate, this jumps up to
-          $0.25. And you can play with the DApp growth/churn rates too to see
-          the effect that has. Again, this is just an estimate, and Discover is
-          only one part of a much larger token ecosystem, so do take it with a
-          healthy pinch of salt.
+          $0.25.
+        </p>
+        <p>
+          You can also play with the DApp growth/churn rates too to see the
+          effect that has. Doubling the growth rate from 15% to 30% results in
+          an NPUV of $178M and an increase in SNT Price of $0.05. Again, this is
+          just an estimate, and Discover is only one part of a much larger token
+          ecosystem, so do take it with a healthy pinch of salt.
         </p>
         <p>
           It's worth stressing this one more time: this utility value accrues to
