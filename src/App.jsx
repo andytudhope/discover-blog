@@ -20,8 +20,8 @@ class App extends Component {
       if (name === "numberDApps") {
         return new Inspector(this.numberDApps.current);
       }
-      if (name === "viewof percentRanked") {
-        return new Inspector(this.percentRanked.current);
+      if (name === "mobileAndUseful") {
+        return new Inspector(this.mobileAndUseful.current);
       }
       if (name === "viewof dappGrowthRate") {
         return new Inspector(this.dappGrowthRate.current);
@@ -59,7 +59,7 @@ class App extends Component {
 
   numberDApps = React.createRef();
 
-  percentRanked = React.createRef();
+  mobileAndUseful = React.createRef();
 
   dappGrowthRate = React.createRef();
 
@@ -292,14 +292,16 @@ class App extends Component {
         </ul>
         <h4>Calculate DApp Growth/Churn</h4>
         <div ref={this.numberDApps} />
+        <div ref={this.mobileAndUseful} />
+        <br />
         <p>
-          This is taken directly from StateOfTheDApp's current total. Now, you
-          need to decide how many of those are actually mobile-optimised AND
-          would be willing to spend SNT to rank in Discover. Note the
-          compounding effect on the y-axis as you change the growth rate in
-          particular.
+          This is taken directly from StateOfTheDApp's current total. However,
+          only a small fraction of those meet the criteria to be displayed in
+          Discover. Now, you need to decide how many of those mobile, useful
+          DApps would be willing to spend SNT to rank in Discover year on year.
+          Note the compounding effect on the y-axis as you change the growth
+          rate in particular.
         </p>
-        <div ref={this.percentRanked} />
         <div ref={this.dappGrowthRate} />
         <br />
         <div ref={this.percentageWithdrawn} />
@@ -352,10 +354,10 @@ class App extends Component {
           $0.25.
         </p>
         <p>
-          You can also play with the DApp growth/churn rates too to see the
-          effect that has. Doubling the growth rate from 15% to 30% results in
-          an NPUV of $178M and an increase in SNT Price of $0.05. Again, this is
-          just an estimate, and Discover is only one part of a much larger token
+          You can also play with the DApp growth/churn rates to see the effect
+          that has. Doubling the growth rate from 15% to 30% results in an NPUV
+          of $178M and an increase in SNT Price of $0.05. Again, this is just an
+          estimate, and Discover is only one part of a much larger token
           ecosystem, so do take it with a healthy pinch of salt.
         </p>
         <p>
@@ -410,7 +412,7 @@ class App extends Component {
         <h2>Notes</h2>
         <p>
           ** You may ask "why relevance and benefit to communities I care about
-          as the only 2 metrics?" Isn"t there some better way to measure the
+          as the only 2 metrics?" Isn't there some better way to measure the
           "truth-value" of content and display that? The short answer is: no.
         </p>
         <p>
@@ -422,7 +424,7 @@ class App extends Component {
           <a href="https://www.youtube.com/watch?v=k1W5wAGzCpU">
             one human's fact and another's fiction
           </a>{" "}
-          that doesn"t leave someone fuming about the injustice of it all.
+          that doesn't leave someone fuming about the injustice of it all.
         </p>
         <p>
           If instead, we allow anyone free access to search for content they
