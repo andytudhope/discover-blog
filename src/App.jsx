@@ -8,9 +8,6 @@ class App extends Component {
   componentDidMount() {
     const runtime = new Runtime();
     runtime.module(notebook, name => {
-      if (name === "total_snt_minted") {
-        return new Inspector(this.totalSntMinted.current);
-      }
       if (name === "viewof percent_ceiling") {
         return new Inspector(this.percentCeiling.current);
       }
@@ -51,8 +48,6 @@ class App extends Component {
     });
   }
 
-  totalSntMinted = React.createRef();
-
   percentCeiling = React.createRef();
 
   discoverCurve = React.createRef();
@@ -90,31 +85,40 @@ class App extends Component {
           Have few desires.” ― Lao Tzu
         </blockquote>
         <p>
-          As committed readers will know from previous posts, we plan to rank
-          DApps that appear in Discover, the DApp Store most easily accessible
-          from Status, using a radically simple game.
+          As part of a Token Economics series, we'd like to showcase{" "}
+          <a href="https://dap.ps">Discover</a> as an example of some tentative
+          token engineering. Discover is a part of the Status Network, and has
+          one goal:
         </p>
         <p>
-          Whoever stakes the most SNT ranks the highest, with one twist. The
-          more you stake on your DApp, the cheaper it becomes for the community
-          to downvote it (and the less SNT you stand to earn back as a result of
-          those votes).
+          <code>
+            Design an economic system for curating information with no single
+            point of failure and no owner, where information which ranks highly
+            is provably valuable to network stakeholders, while protecting
+            against the rich
+          </code>
         </p>
         <p>
-          This means that we can make sure information which ranks highly
-          literally provides us with the most value, but prevent (at least to
-          some degree) unfair domination of the market by well-resourced actors.
-          It also means we can entirely remove middlemen from the process of
-          curating information online.
+          Discover's design is simple. Whoever stakes the most tokens, ranks
+          highest; with one twist. The more you stake, the cheaper it is for
+          other token holders to downvote you. While the first use case is
+          ranking DApps, this simple system can be applied to arbitrary
+          information, from DApps, products and services; to stickers;
+          extensions; social content and much more.
+        </p>
+        <p>
+          This means that Discover can help ensure DApps which rank highly
+          provide us with the most value, but prevent (at least to some degree)
+          unfair domination of the market by the rich. It also means we can
+          remove middlemen from the process of curating information online.
         </p>
         <h2>Looking Closer</h2>
         <p>
-          People do not want to think about which links appear first in their
-          searches. They do not want the mental overhead of holding hundreds of
-          tokens related to different markets, which require on-chain
-          transactions to vote with, or redeem, or otherwise render "valuable".
-          As a user, I simply want to know that the content which appears first
-          is
+          People don't want to think about which links appear first in their
+          searches. The mental overhead of holding hundreds of tokens related to
+          different markets, which require on-chain transactions to vote with,
+          or redeem, or otherwise render "valuable" is very high. As a user, I
+          simply want to know that the content which appears first is
         </p>
         <ul>
           <li>Relevant to me, and</li>
@@ -129,11 +133,11 @@ class App extends Component {
           </li>
         </ul>
         <p>
-          Even further, because we know how much{" "}
+          Furthermore, because we know how much{" "}
           <a href="https://www.aspenreview.com/article/2017/jaron-lanier%3A-beware-of-siren-servers%21/">
             political power is generated for those who control
           </a>{" "}
-          such 'relevance' and 'cost', it's also important that no-one owns such
+          such 'relevance' and 'cost', it's important that no-one owns such
           systems and that they exist solely to serve the networks of which they
           are a part.
         </p>
@@ -143,38 +147,37 @@ class App extends Component {
         </p>
         <h2>Economic Design</h2>
         <p>
-          One other verifiable claim about people: more often than not they do
-          not care enough to vote with their tokens. So, we cannot simply farm
-          out curation to "the community" and claim we have achieved
-          decentralisation because
-        </p>
-        <ul>
-          <li>
-            Digital "communities" are shifting and transient beasts with low
-            barriers to entry/exit.
-          </li>
-          <li>
-            Such "communities" have shown that they do not often reach quorum,
-            even on "important" issues.
-          </li>
-          <li>
-            Systems built around transient groups with high levels of apathy are
-            bound to fail.
-          </li>
-        </ul>
-        <p>
-          The Discover curve sidesteps the problems above simply. Even if not
-          one community member uses their SNT to affect the rankings, we can be
-          sure that the DApps which rank highest are literally providing the
-          most value to the community interested in those DApps (i.e. SNT
-          holders). This is because, the more you stake to rank highly, the more
-          SNT is locked out of circulation; decreasing supply and so having a
-          positive effect for each individual SNT holder.
+          It's important that the systems we use to create and describe the flow
+          of explicit (i.e. economic) value do not have any single point of
+          failure. This means that we cannot simply hand the job of curation to
+          "the community" and claim that "decentralisation" will solve the rest.
+          Our tentative token engineering is aimed at creating systems that
+          achieve their core goal, even in the absence of community input (or
+          "votes").
         </p>
         <p>
-          However, SNT holders can affect the rankings should they so desire,
-          and doing so becomes cheaper and has a larger effect the more
-          resources are committed to a given DApp's rank.
+          Knowledge and information need both hierarchical and emergent,
+          networked structures in order to be properly navigated, and thus be
+          rendered valuable. Bill English explains this idea best in his part of{" "}
+          <a href="https://youtu.be/fhEh3tEL1V4?t=4630">
+            the Mother of All Demos
+          </a>
+          . A less technical way of saying this is that metaphors - i.e.
+          patterns imprinted on what we call "information" must be modelled in
+          as many ways as possible in order to mean (i.e. 'be valauble'), which
+          has been at the conceptual heart of ranking stuff since at least{" "}
+          <a href="https://nakamotoinstitute.org/the-playdough-protocols/">
+            ancient Sumer
+          </a>
+          .
+        </p>
+        <p>
+          Even if not a single community member uses their SNT to affect the
+          rankings, we can be sure that the DApps which rank highest are
+          literally providing the most value to people who hold SNT. This is
+          because, the more you stake to rank highly, the more SNT is locked out
+          of circulation; decreasing supply and so having a positive effect for
+          each individual SNT holder.
         </p>
         <p>
           It's all the beauty of bonding curves without the unnecessary
@@ -184,35 +187,108 @@ class App extends Component {
         <p>
           The more SNT you stake, the more virtual "votes" can be created on
           your DApp, so the cheaper each vote becomes. Because there is a set
-          amount of SNT that was minted (6 804 870 174), we can use this to
-          calculate the (exponential) rate at which we create "votes" based on
-          the SNT staked relative to the Total SNT Minted.
+          amount of SNT that was minted (<code>6 804 870 174</code>), we can use
+          this to calculate the (exponential) rate at which we create "votes"
+          based on the SNT staked relative to the Total SNT Minted.
         </p>
         <p>
           By this self-recursive trick, we can make sure that moving a DApp down
-          in the rankings by the same percentage becomes proportionally cheaper
-          the more SNT is staked on that DApp.
+          in the rankings by the same percentage becomes{" "}
+          <strong>proportionally</strong> cheaper the more SNT is staked on that
+          DApp.
         </p>
         <p>
-          Each important variable can be expressed in terms of another, all of
-          which are related to the Total SNT Minted, so we need only consider
-          one, key parameter for the entire system, which we have chosen to call{" "}
+          Each variable can be expressed in terms of another, all of which are
+          related to the Total SNT Minted, so we need only consider one, key
+          parameter for the entire system, which we have chosen to call{" "}
           <code>ceiling</code>.
         </p>
         <p>
           The <code>ceiling</code> is the % of Total SNT Minted any one DApp can
           stake to rank. That is, there is a limit to how much SNT you can
-          stake, defined in relation to the total SNT that can ever exist. The{" "}
+          stake, defined in relation to the Total SNT that can ever exist. The{" "}
           <code>ceiling</code> affects the shape of the curve the most,
-          dictating both the total you can stake and the point at which
+          dictating both huw much you can stake and the point at which
           diminishing returns become too punishing for rational actors (~1.2M
-          SNT in below). Play with the ceiling toggle to see the effect choosing
-          different ceiling has on the axes and curves.
+          SNT in below). Play with the toggle to see the effect choosing
+          different values has on the axes and curves.
         </p>
-        <div ref={this.totalSntMinted} />
-        <br />
         <div ref={this.percentCeiling} />
         <div ref={this.discoverCurve} className={style.chart} />
+        <h2>What is the Right Ceiling?</h2>
+        <p>
+          It's kinda impossible to answer this question right now with no good
+          data, so instead we're asking{" "}
+          <a href="https://get.status.im/chat/public/status">for your help</a>{" "}
+          and will talk here about how we landed up at the ceiling we currently
+          have.
+        </p>
+        <ol>
+          <li>
+            We ran some informal{" "}
+            <a href="https://twitter.com/cryptowanderer/status/1113444025548320768">
+              twitter
+            </a>
+            <a href="https://twitter.com/cryptowanderer/status/1113444553665724416">
+              polls
+            </a>{" "}
+            and{" "}
+            <a href="https://discuss.status.im/t/dapp-store-spot-survey/1131">
+              discuss posts
+            </a>{" "}
+            to see what people might want to stake on a DApp they had made or
+            had played a role in.
+          </li>
+          <li>
+            Based on the results, it seemed like people aren't that willing to
+            spend too much SNT to rank in Discover. There are many similar
+            services, and Status doesn't have many users while still in alpha,
+            so the value proposition is admittedly a little unclear.
+          </li>
+          <li>
+            However, those same people said they would most likely expect those
+            with more resources to spend as much as 100 000 to 500 000 SNT to
+            rank in the long-term. So, we somehow need to account for both
+            potentially big spenders, and those small startups/single developers
+            who could/would not pay more than 1 000 SNT.
+          </li>
+        </ol>
+        <p>
+          The question is how to best do that? Right now, we're looking at 2
+          meta-metrics for this:
+        </p>
+        <ol>
+          <li>
+            the{" "}
+            <i>
+              total staked after which it becomes increasingly cheaper to vote
+            </i>
+            , and so is not economically "rational" to spend: more expensive +
+            decreasing returns/ability to withdraw means we can't expect many
+            actors to stake much more than 1-1.2M SNT in the current setup. But,
+            why that number rather than the ~500 000 SNT our polls indicated
+            might be best?
+          </li>
+          <li>
+            Well, we're also interested in{" "}
+            <i>
+              the point at which it becomes cheaper than 1 SNT to buy a vote
+            </i>
+            . Small startups and developers ought to be difficult to troll, and
+            so making sure that we understand and think carefully about the
+            exact point at which voting on a DApp becomes cheaper than staking
+            to raise it's ranking. With the current ceiling (0.0292%), the cost
+            to downvote a DApp with 10 000 SNT staked by 1% is 100.5 SNT (i.e.
+            more than 1%) and 199.98 SNT when the stake is 20 000 SNT.
+          </li>
+          <li>
+            Which means there's added protection for those who stake lower
+            amounts (up to ~18 000 SNT), but plenty of room for people to stake
+            more than our polls initially suggest. If you'd like to help us
+            understand and model this better, please, join the conversation in{" "}
+            <a href="https://get.status.im/chat/public/status">Status</a>.
+          </li>
+        </ol>
         <h2>No Middlemen</h2>
         <p>
           Equally important, there is no middleman in the above setup, and there
@@ -221,9 +297,7 @@ class App extends Component {
         <ul>
           <li>
             100% of what you stake as a developer goes toward your DApp's
-            ranking. This is locked in the Discover contract, so decreases the
-            total in circulation, which is good for the whole community of token
-            holders.
+            ranking. This is locked in the Discover contract.
           </li>
           <li>
             You can withdraw this SNT at any time, though not all of it. You can
@@ -233,7 +307,7 @@ class App extends Component {
           </li>
           <li>
             100% of what you use to upvote as a user goes directly to that
-            DApp's balance and is also locked in the contract.
+            DApp's balance and is locked in the contract.
           </li>
           <li>
             100% of what you use to downvote as a user goes directly back to the
@@ -242,9 +316,9 @@ class App extends Component {
         </ul>
         <h2>SNT Utility</h2>
         <p>
-          So, what's the point of demonstrating to you via means of an
-          interactive blog series all of the cool new ways you can use SNT?
-          Well, first and foremost, it is so that we ensure we live up to{" "}
+          What's the point of demonstrating to you via means of an interactive
+          blog series how the Status Network fits together? First and foremost,
+          it is so that we ensure we live up to{" "}
           <a href="https://status.im/about/">our principles</a> and deliver on
           the promises we made in our{" "}
           <a href="https://status.im/whitepaper.pdf">whitepaper</a>. There are
@@ -271,22 +345,21 @@ class App extends Component {
         </p>
         <p>
           Not only are we keen to prove SNT utility to everyone, we also want
-          more concrete numbers which express the potential value of such
-          utility in permissionless and decentralised networks incentivised with
+          more concrete numbers which express the potential utility value of
+          permissionless and decentralised networks incentivised with
           programmable money. In order to do that, we need to calculate
           something called the "Net Present Utility Value". There are two
           important things to know about this:
         </p>
         <ul>
           <li>
-            It is based on some rather large assumptions, so please play with
-            the sliders provided to use numbers you may think more realistic, or
-            simply check our work.
+            It is based on some large assumptions, so please play with the
+            sliders provided to use numbers you may think more realistic.
           </li>
           <li>
             It is not to be taken as gospel! We are not saying that such
             valuations are exactly what will end up happening. Cryptoeconimic
-            design and token models are in their infancy, and what we present
+            design and token models are in their infancy and what we present
             here constitutes early and tentative research, nothing more.
           </li>
         </ul>
@@ -332,10 +405,10 @@ class App extends Component {
         <br />
         <p>
           In the current setup, we can estimate a rough Net Present Utility
-          Value of ~$60M USD over the next 10 years for Discover. It's worth
+          Value of ~$178M USD over the next 10 years for Discover. It's worth
           noting that, if you change the userGrowthRate from the current 200%,
           to 300%, then it has a drastic effect on the NPUV, moving it up to
-          867M USD. That's the power of compounding for you.
+          2.59B USD. That's the power of compounding for you.
         </p>
         <p>
           From this, we can see what small changes to the relevant inputs can do
@@ -350,30 +423,30 @@ class App extends Component {
         <p>
           As you can see, the estimated effect of locking up all this SNT to
           rank DApps on the Price of SNT over the next 10 years is roughly an
-          increase of $0.017 per token. At 300% userGrowthRate, this jumps up to
-          $0.25.
+          increase of $0.05 per token. At 300% userGrowthRate, this jumps up to
+          $0.75.
         </p>
         <p>
           You can also play with the DApp growth/churn rates to see the effect
-          that has. Doubling the growth rate from 15% to 30% results in an NPUV
-          of $178M and an increase in SNT Price of $0.05. Again, this is just an
+          that has. Doubling the growth rate from 30% to 60% results in an NPUV
+          of $1.1B and an increase in SNT Price of $0.33. Again, this is just an
           estimate, and Discover is only one part of a much larger token
           ecosystem, so do take it with a healthy pinch of salt.
         </p>
         <p>
           It's worth stressing this one more time: this utility value accrues to
-          the network as a whole, it is not simply magicked into Status' coffers
-          somehow. Come contribute to this adventure and some of the value we
-          end up creating will no doubt accrue to you!
+          the network as a whole, it is not just magicked into Status' coffers.
+          Come contribute to this adventure and some of the value we end up
+          creating will accrue to you!
         </p>
         <h2>Conclusion</h2>
         <p>By having a clear goal in mind:</p>
         <p>
           <code>
             Design an economic system for curating information with no single
-            point of failure where information which ranks highly is provably
-            valuable to network stakeholders, while protecting against
-            well-resourced actors
+            point of failure and no owner, where information which ranks highly
+            is provably valuable to network stakeholders, while protecting
+            against the rich
           </code>
         </p>
         <p>
@@ -419,8 +492,11 @@ class App extends Component {
           It has been known since time immemorial that it is impossible to state
           an objective truth in language. Without getting technical, we can
           blame interpretation: an act all language must undergo in order to
-          mean. This means that GAFA will never solve "fake news", because it is
-          impossible to draw a clear line between{" "}
+          mean. This means that{" "}
+          <a href="https://aaronzlewis.com/blog/2019/05/29/you-can-handle-the-post-truth/">
+            GAFA will never solve "fake news"
+          </a>
+          , because it is impossible to draw a clear line between{" "}
           <a href="https://www.youtube.com/watch?v=k1W5wAGzCpU">
             one human's fact and another's fiction
           </a>{" "}
